@@ -49,7 +49,15 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test'
 }
 
-def webappDir = "$projectDir/src/main/frontend"
+def webappDir = "$projectDir/src/main/java/frontend/jormall"
+
+// node 버전 및 npm, node 설치파일 저장 디렉토리 명시
+node {
+    version = '15.11.0'
+    download=true
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir=file("${project.buildDir}/npm")
+}
 
 sourceSets {
 	main {
@@ -63,34 +71,24 @@ processResources {
 	dependsOn "buildReact"
 }
 
-node {
-	version = '15.11.0'
-	npmVersion = '7.6.0'
-	download = true
-}
-
-task buildReact(type: Exec) {
+task buildReact(type: NpmTask) {
 	dependsOn "installReact"
-	workingDir "$webappDir"
-	inputs.dir "$webappDir"
+	workingDir = file("$webappDir")
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine "npm.cmd", "run-script", "build"
+		args = [".cmd build"]
 	} else {
-		commandLine "npm", "run-script", "build"
+		args = ["build"]
 	}
 }
 
-task installReact(type: Exec) {
-	workingDir "$webappDir"
-	inputs.dir "$webappDir"
+task installReact(type: NpmTask) {
+	workingDir = file("$webappDir")
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-		commandLine "npm.cmd", "audit", "fix"
-		commandLine 'npm.cmd', 'install'
+		args = [".cmd audit fix", ".cmd install"]
 	} else {
-		commandLine "npm", "audit", "fix"
-		commandLine 'npm', 'install'
+		args = ["audit fix", "install"]
 	}
 }
 
