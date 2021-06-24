@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk8
+  - openjdk11
 
 # Travis CI 어느 브랜치에서 실행될지 결정
 branches:
