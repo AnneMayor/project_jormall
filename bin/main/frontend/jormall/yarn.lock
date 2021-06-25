@@ -4009,6 +4009,14 @@ dns-equal@^1.0.0:
   resolved "https://registry.npmjs.org/dns-equal/-/dns-equal-1.0.0.tgz"
   integrity sha1-s55/HabrCnW6nBcySzR1PEfgZU0=
 
+dns-packet@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.2.tgz#8d50e580b952161a7ac57eb4e38471aad9d42a59"
+  integrity sha512-qH/MS6fDOeNBTsF3k/v/SrwaXlDeewxgddXGUUfwauEBZkz7u59oF+3ZNSzcZeCuPWOfkqmcAnXW1gliiFW+1A==
+  dependencies:
+    ip "^1.1.0"
+    safe-buffer "^5.0.1"
+
 dns-packet@^1.3.1:
   version "1.3.1"
   resolved "https://registry.npmjs.org/dns-packet/-/dns-packet-1.3.1.tgz"
