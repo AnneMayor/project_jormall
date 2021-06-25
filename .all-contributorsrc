@@ -18,6 +18,17 @@
   },
   "skipCi": true,
   "contributors": [
+    {
+      "login": "AnneMayor",
+      "name": "AnneMayor",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15176192?v=4",
+      "profile": "https://velog.io/@pranne1224",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
   ],
   "repoType": "github",
   "repoHost": "https://github.com"
