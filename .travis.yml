@@ -5,7 +5,7 @@ jdk:
 # Travis CI 어느 브랜치에서 실행될지 결정
 branches:
  only:
-   - master
+   - release
 
 # Travis CI 서버의 Home
 # Gradle을 통해 의존성을 받게 되면 이를 Travis CI 디렉토리에 cache하여 다음 배포 때부턴 받지 않도록 설정
